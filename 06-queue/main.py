@@ -69,17 +69,18 @@ class Queue:
 
 
 # Example usage
-queue = Queue()
+if __name__ == "__main__":
+    queue = Queue()
 
-queue.offer(1)
-queue.offer(2)
-queue.offer(3)
+    queue.offer(1)
+    queue.offer(2)
+    queue.offer(3)
 
-print(queue.peek())  # Output: 1
-print(queue.poll())  # Output: 1
-print(queue.poll())  # Output: 2
-print(queue.poll())  # Output: 3
+    print(queue.peek())  # Output: 1
+    print(queue.poll())  # Output: 1
+    print(queue.poll())  # Output: 2
+    print(queue.poll())  # Output: 3
 
-# Uncomment to test the iterator
-# for item in queue:
-#     print(item)
+    # Uncomment to test the iterator
+    # for item in queue:
+    #     print(item)

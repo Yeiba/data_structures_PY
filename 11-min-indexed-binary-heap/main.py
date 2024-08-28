@@ -68,16 +68,17 @@ class MinIndexedBinaryHeap:
 
 
 # Example usage
-heap = MinIndexedBinaryHeap(10)
+if __name__ == "__main__":
+    heap = MinIndexedBinaryHeap(10)
 
-heap.add(0, 5)
-heap.add(1, 3)
-heap.add(2, 8)
-heap.add(3, 1)
-heap.add(4, 7)
+    heap.add(0, 5)
+    heap.add(1, 3)
+    heap.add(2, 8)
+    heap.add(3, 1)
+    heap.add(4, 7)
 
-print(heap.peek())  # 3 (index of the minimum key)
-print(heap.get_key(heap.peek()))  # 1 (value of the minimum key)
-heap.remove(3)  # Remove the element with index 3
-print(heap.peek())  # 1 (new minimum key index)
-print(heap.get_key(heap.peek()))  # 3 (new minimum key value)
+    print(heap.peek())  # 3 (index of the minimum key)
+    print(heap.get_key(heap.peek()))  # 1 (value of the minimum key)
+    heap.remove(3)  # Remove the element with index 3
+    print(heap.peek())  # 1 (new minimum key index)
+    print(heap.get_key(heap.peek()))  # 3 (new minimum key value)

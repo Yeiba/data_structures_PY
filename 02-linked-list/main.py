@@ -60,14 +60,14 @@ class linked_list:
             cur_idx += 1
 
 
-l1 = linked_list()
-l1.append(8)
-l1.append(7)
-l1.append(6)
-l1.append(5)
+if __name__ == "__main__":
+    l1 = linked_list()
+    l1.append(8)
+    l1.append(7)
+    l1.append(6)
+    l1.append(5)
 
-
-print(l1.get(0))
-print(l1.get(1))
-print(l1.get(2))
-print(l1.get(3))
+    print(l1.get(0))
+    print(l1.get(1))
+    print(l1.get(2))
+    print(l1.get(3))

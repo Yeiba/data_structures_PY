@@ -94,12 +94,13 @@ class DynamicArray:
 
 
 # Example usage:
-arr = DynamicArray()
-arr.add(1)
-arr.add(2)
-arr.add(3)
-print(arr)  # Output: [1, 2, 3]
-arr.remove_at(1)
-print(arr)  # Output: [1, 3]
-print(arr.contains(2))  # Output: False
-print(arr.size())  # Output: 2
+if __name__ == "__main__":
+    arr = DynamicArray()
+    arr.add(1)
+    arr.add(2)
+    arr.add(3)
+    print(arr)  # Output: [1, 2, 3]
+    arr.remove_at(1)
+    print(arr)  # Output: [1, 3]
+    print(arr.contains(2))  # Output: False
+    print(arr.size())  # Output: 2

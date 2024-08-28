@@ -163,18 +163,19 @@ class MinIndexedDHeap:
 
 
 # Example usage
-heap = MinIndexedDHeap(3, 10)  # Ternary heap
+if __name__ == "__main__":
+    heap = MinIndexedDHeap(3, 10)  # Ternary heap
 
-heap.insert(0, 5)
-heap.insert(1, 3)
-heap.insert(2, 8)
-heap.insert(3, 1)
-heap.insert(4, 7)
+    heap.insert(0, 5)
+    heap.insert(1, 3)
+    heap.insert(2, 8)
+    heap.insert(3, 1)
+    heap.insert(4, 7)
 
-print(heap.peek_min_key_index())  # 3 (index of the minimum key)
-print(heap.peek_min_value())  # 1 (value of the minimum key)
+    print(heap.peek_min_key_index())  # 3 (index of the minimum key)
+    print(heap.peek_min_value())  # 1 (value of the minimum key)
 
-heap.delete(3)  # Remove the element with index 3
+    heap.delete(3)  # Remove the element with index 3
 
-print(heap.peek_min_key_index())  # 1 (new minimum key index)
-print(heap.peek_min_value())  # 3 (new minimum key value)
+    print(heap.peek_min_key_index())  # 1 (new minimum key index)
+    print(heap.peek_min_value())  # 3 (new minimum key value)

@@ -41,28 +41,29 @@ class IntQueue:
 
 
 # Example usage
-queue = IntQueue(5)
+if __name__ == "__main__":
+    queue = IntQueue(5)
 
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-queue.enqueue(4)
-queue.enqueue(5)
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(4)
+    queue.enqueue(5)
 
-print(queue.dequeue())  # Output: 1
-print(queue.dequeue())  # Output: 2
-print(queue.dequeue())  # Output: 3
-print(queue.dequeue())  # Output: 4
+    print(queue.dequeue())  # Output: 1
+    print(queue.dequeue())  # Output: 2
+    print(queue.dequeue())  # Output: 3
+    print(queue.dequeue())  # Output: 4
 
-print(queue.is_empty())  # Output: False
+    print(queue.is_empty())  # Output: False
 
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
 
-print(queue.dequeue())  # Output: 5
-print(queue.dequeue())  # Output: 1
-print(queue.dequeue())  # Output: 2
-print(queue.dequeue())  # Output: 3
+    print(queue.dequeue())  # Output: 5
+    print(queue.dequeue())  # Output: 1
+    print(queue.dequeue())  # Output: 2
+    print(queue.dequeue())  # Output: 3
 
-print(queue.is_empty())  # Output: True
+    print(queue.is_empty())  # Output: True

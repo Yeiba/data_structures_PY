@@ -96,14 +96,15 @@ class Node:
         return f"Node(value={self.value})"
 
 
-heap = MinDHeap(3, 10)  # A ternary heap with capacity of 10
+if __name__ == "__main__":
+    heap = MinDHeap(3, 10)  # A ternary heap with capacity of 10
 
-heap.add(Node(5))
-heap.add(Node(3))
-heap.add(Node(8))
-heap.add(Node(1))
-heap.add(Node(7))
+    heap.add(Node(5))
+    heap.add(Node(3))
+    heap.add(Node(8))
+    heap.add(Node(1))
+    heap.add(Node(7))
 
-print(heap.peek())  # Node(value=1)
-print(heap.poll())  # Node(value=1)
-print(heap.peek())  # Node(value=3)
+    print(heap.peek())  # Node(value=1)
+    print(heap.poll())  # Node(value=1)
+    print(heap.peek())  # Node(value=3)

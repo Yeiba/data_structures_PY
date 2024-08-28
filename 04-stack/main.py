@@ -44,14 +44,15 @@ class Stack:
 
 
 # Example usage:
-stack = Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
 
-print(stack.pop())  # 3
-print(stack.peek())  # 2
-print(stack.size())  # 2
+    print(stack.pop())  # 3
+    print(stack.peek())  # 2
+    print(stack.size())  # 2
 
-for item in stack:
-    print(item)  # 2, 1
+    for item in stack:
+        print(item)  # 2, 1

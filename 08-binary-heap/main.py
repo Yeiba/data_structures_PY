@@ -165,23 +165,24 @@ class BinaryHeap:
 
 
 # Example usage
-heap = BinaryHeap()
-heap.add(5)
-heap.add(3)
-heap.add(8)
-heap.add(1)
-heap.add(7)
+if __name__ == "__main__":
+    heap = BinaryHeap()
+    heap.add(5)
+    heap.add(3)
+    heap.add(8)
+    heap.add(1)
+    heap.add(7)
 
-print(heap.peek())  # Output: 1 (min element)
-print(heap.poll())  # Output: 1 (removes and returns min element)
-print(heap.peek())  # Output: 3 (new min element)
+    print(heap.peek())  # Output: 1 (min element)
+    print(heap.poll())  # Output: 1 (removes and returns min element)
+    print(heap.peek())  # Output: 3 (new min element)
 
-print(heap.is_min_heap())  # Output: True
+    print(heap.is_min_heap())  # Output: True
 
-# Convert an array to a heap
-heap_from_array = BinaryHeap.from_array([5, 3, 8, 1, 7])
-print(heap_from_array)  # Min-heap representation
+    # Convert an array to a heap
+    heap_from_array = BinaryHeap.from_array([5, 3, 8, 1, 7])
+    print(heap_from_array)  # Min-heap representation
 
-# Remove a specific element
-heap.remove(7)
-print(heap)  # Heap after removal
+    # Remove a specific element
+    heap.remove(7)
+    print(heap)  # Heap after removal

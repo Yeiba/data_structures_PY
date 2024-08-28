@@ -100,15 +100,16 @@ class IntArray:
 
 
 # Example usage
-ar = IntArray(50)
-ar.add(3)
-ar.add(7)
-ar.add(6)
-ar.add(-2)
+if __name__ == "__main__":
+    ar = IntArray(50)
+    ar.add(3)
+    ar.add(7)
+    ar.add(6)
+    ar.add(-2)
 
-ar.sort()  # [-2, 3, 6, 7]
+    ar.sort()  # [-2, 3, 6, 7]
 
-for i in range(ar.size()):
-    print(ar.get(i))  # Prints -2, 3, 6, 7
+    for i in range(ar.size()):
+        print(ar.get(i))  # Prints -2, 3, 6, 7
 
-print(ar)  # Prints [-2, 3, 6, 7]
+    print(ar)  # Prints [-2, 3, 6, 7]

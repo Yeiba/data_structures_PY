@@ -142,27 +142,28 @@ class DoublyLinkedList:
 
 
 # Example usage:
-dll = DoublyLinkedList()
-dll.add(3)
-dll.add_first(2)
-dll.add_last(4)
+if __name__ == "__main__":
+    dll = DoublyLinkedList()
+    dll.add(3)
+    dll.add_first(2)
+    dll.add_last(4)
 
-print(dll)  # [ 2, 3, 4, ]
+    print(dll)  # [ 2, 3, 4, ]
 
-print(dll.peek_first())  # 2
-print(dll.peek_last())   # 4
+    print(dll.peek_first())  # 2
+    print(dll.peek_last())   # 4
 
-dll.remove_first()
-dll.remove_last()
+    dll.remove_first()
+    dll.remove_last()
 
-print(dll)  # [ 3, ]
+    print(dll)  # [ 3, ]
 
-dll.add(5)
-dll.add(6)
-dll.add(7)
+    dll.add(5)
+    dll.add(6)
+    dll.add(7)
 
-print(dll.remove_at(1))  # 6
-print(dll)  # [ 3, 7, ]
+    print(dll.remove_at(1))  # 6
+    print(dll)  # [ 3, 7, ]
 
-print(dll.index_of(7))  # 1
-print(dll.contains(5))  # False
+    print(dll.index_of(7))  # 1
+    print(dll.contains(5))  # False

@@ -46,17 +46,18 @@ class IntStack:
 
 
 # Example usage:
-stack = IntStack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
+if __name__ == "__main__":
+    stack = IntStack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
 
-print(stack.pop())  # 3
-print(stack.peek())  # 2
-print(stack.size())  # 2
+    print(stack.pop())  # 3
+    print(stack.peek())  # 2
+    print(stack.size())  # 2
 
-for item in stack:
-    print(item)  # 2, 1
+    for item in stack:
+        print(item)  # 2, 1
 
 # Uncommenting the following line will raise a TypeError
 # stack.push("string")  # TypeError: Only integers are allowed in the stack
