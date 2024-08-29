@@ -104,3 +104,12 @@ if __name__ == "__main__":
     print(arr)  # Output: [1, 3]
     print(arr.contains(2))  # Output: False
     print(arr.size())  # Output: 2
+
+# Original dictionary
+list_ = {"fname": "me", "lname": "me", "email": "me", "password": "me"}
+
+# Unpack the dictionary to separate 'password' and the rest of the dictionary
+restoflist = {key: value for key, value in list_.items() if key != "password"}
+
+# Output the rest of the dictionary
+print(restoflist)  # Output: {'fname': 'me', 'lname': 'me', 'email': 'me'}
