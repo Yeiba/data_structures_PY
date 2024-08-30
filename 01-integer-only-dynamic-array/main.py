@@ -1,7 +1,6 @@
 class IntArray:
-    DEFAULT_CAP = 8
+    def __init__(self, capacity=16):
 
-    def __init__(self, capacity=DEFAULT_CAP):
         if capacity < 0:
             raise ValueError(f"Illegal Capacity: {capacity}")
         self.capacity = capacity
@@ -9,14 +8,18 @@ class IntArray:
         self.len = 0
 
     # Initialize with an existing array
+
     @classmethod
     def from_array(cls, array):
-        if array is None:
-            raise ValueError("Array cannot be null")
-        int_array = cls(len(array))
-        int_array.arr = array[:]
-        int_array.len = int_array.capacity = len(array)
-        return int_array
+        try:
+            if array is None:
+                raise ValueError("Array cannot be null")
+            int_array = cls(len(array))
+            int_array.arr = array[:]
+            int_array.len = int_array.capacity = len(array)
+            return int_array
+        except ValueError as e:
+            print("Error:", e)
 
     def size(self):
         return self.len
@@ -25,14 +28,20 @@ class IntArray:
         return self.len == 0
 
     def get(self, index):
-        if index < 0 or index >= self.len:
-            raise IndexError("Index out of bounds")
-        return self.arr[index]
+        try:
+            if index < 0 or index >= self.len:
+                raise IndexError("Index out of bounds")
+            return self.arr[index]
+        except IndexError as e:
+            print("Error:", e)
 
     def set(self, index, elem):
-        if index < 0 or index >= self.len:
-            raise IndexError("Index out of bounds")
-        self.arr[index] = elem
+        try:
+            if index < 0 or index >= self.len:
+                raise IndexError("Index out of bounds")
+            self.arr[index] = elem
+        except IndexError as e:
+            print("Error:", e)
 
     def add(self, elem):
         if self.len >= self.capacity:
@@ -45,12 +54,15 @@ class IntArray:
         self.len += 1
 
     def remove_at(self, rm_index):
-        if rm_index < 0 or rm_index >= self.len:
-            raise IndexError("Index out of bounds")
-        for i in range(rm_index, self.len - 1):
-            self.arr[i] = self.arr[i + 1]
-        self.arr[self.len - 1] = 0
-        self.len -= 1
+        try:
+            if rm_index < 0 or rm_index >= self.len:
+                raise IndexError("Index out of bounds")
+            for i in range(rm_index, self.len - 1):
+                self.arr[i] = self.arr[i + 1]
+            self.arr[self.len - 1] = 0
+            self.len -= 1
+        except IndexError as e:
+            print("Error:", e)
 
     def remove(self, elem):
         for i in range(self.len):

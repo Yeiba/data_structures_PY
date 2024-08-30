@@ -43,38 +43,50 @@ class DoublyLinkedList:
         self.size += 1
 
     def peek_first(self):
-        if self.is_empty():
-            raise ValueError("Empty list")
-        return self.head.data
+        try:
+            if self.is_empty():
+                raise ValueError("Empty list")
+            return self.head.data
+        except ValueError as e:
+            print("Error:", e)
 
     def peek_last(self):
-        if self.is_empty():
-            raise ValueError("Empty list")
-        return self.tail.data
+        try:
+            if self.is_empty():
+                raise ValueError("Empty list")
+            return self.tail.data
+        except ValueError as e:
+            print("Error:", e)
 
     def remove_first(self):
-        if self.is_empty():
-            raise ValueError("Empty list")
-        data = self.head.data
-        self.head = self.head.next
-        self.size -= 1
-        if self.is_empty():
-            self.tail = None
-        else:
-            self.head.prev = None
-        return data
+        try:
+            if self.is_empty():
+                raise ValueError("Empty list")
+            data = self.head.data
+            self.head = self.head.next
+            self.size -= 1
+            if self.is_empty():
+                self.tail = None
+            else:
+                self.head.prev = None
+            return data
+        except ValueError as e:
+            print("Error:", e)
 
     def remove_last(self):
-        if self.is_empty():
-            raise ValueError("Empty list")
-        data = self.tail.data
-        self.tail = self.tail.prev
-        self.size -= 1
-        if self.is_empty():
-            self.head = None
-        else:
-            self.tail.next = None
-        return data
+        try:
+            if self.is_empty():
+                raise ValueError("Empty list")
+            data = self.tail.data
+            self.tail = self.tail.prev
+            self.size -= 1
+            if self.is_empty():
+                self.head = None
+            else:
+                self.tail.next = None
+            return data
+        except ValueError as e:
+            print("Error:", e)
 
     def remove(self, node):
         if node.prev is None:
@@ -90,18 +102,21 @@ class DoublyLinkedList:
         return data
 
     def remove_at(self, index):
-        if index < 0 or index >= self.size:
-            raise ValueError("Index out of bounds")
-        trav = None
-        if index < self.size / 2:
-            trav = self.head
-            for i in range(index):
-                trav = trav.next
-        else:
-            trav = self.tail
-            for i in range(self.size - 1, index, -1):
-                trav = trav.prev
-        return self.remove(trav)
+        try:
+            if index < 0 or index >= self.size:
+                raise ValueError("Index out of bounds")
+            trav = None
+            if index < self.size / 2:
+                trav = self.head
+                for i in range(index):
+                    trav = trav.next
+            else:
+                trav = self.tail
+                for i in range(self.size - 1, index, -1):
+                    trav = trav.prev
+            return self.remove(trav)
+        except ValueError as e:
+            print("Error:", e)
 
     def remove_value(self, obj):
         trav = self.head

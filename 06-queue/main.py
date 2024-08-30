@@ -23,24 +23,30 @@ class Queue:
     # Peek the element at the front of the queue
     # Raises an error if the queue is empty
     def peek(self):
-        if self.is_empty():
-            raise IndexError("Queue is empty")
-        return self.head.data
+        try:
+            if self.is_empty():
+                raise IndexError("Queue is empty")
+            return self.head.data
+        except IndexError as e:
+            print("Error:", e)
 
     # Poll an element from the front of the queue
     # Raises an error if the queue is empty
     def poll(self):
-        if self.is_empty():
-            raise IndexError("Queue is empty")
+        try:
+            if self.is_empty():
+                raise IndexError("Queue is empty")
 
-        data = self.head.data
-        self.head = self.head.next
-        self._size -= 1
+            data = self.head.data
+            self.head = self.head.next
+            self._size -= 1
 
-        if self.is_empty():
-            self.tail = None
+            if self.is_empty():
+                self.tail = None
 
-        return data
+            return data
+        except IndexError as e:
+            print("Error:", e)
 
     # Add an element to the back of the queue
     def offer(self, elem):

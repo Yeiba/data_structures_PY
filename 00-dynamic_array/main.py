@@ -1,10 +1,11 @@
 class DynamicArray:
     def __init__(self, capacity=16):
+
         if capacity < 0:
             raise ValueError(f"Illegal Capacity: {capacity}")
-        self.capacity = capacity
         self.arr = [None] * capacity
         self.len = 0  # Length user thinks array is
+        self.capacity = capacity
 
     def size(self):
         return self.len
@@ -13,14 +14,20 @@ class DynamicArray:
         return self.size() == 0
 
     def get(self, index):
-        if index < 0 or index >= self.len:
-            raise IndexError("Index out of bounds")
-        return self.arr[index]
+        try:
+            if index < 0 or index >= self.len:
+                raise IndexError("Index out of bounds")
+            return self.arr[index]
+        except IndexError as e:
+            print("Error:", e)
 
     def set(self, index, elem):
-        if index < 0 or index >= self.len:
-            raise IndexError("Index out of bounds")
-        self.arr[index] = elem
+        try:
+            if index < 0 or index >= self.len:
+                raise IndexError("Index out of bounds")
+            self.arr[index] = elem
+        except IndexError as e:
+            print("Error:", e)
 
     def clear(self):
         for i in range(self.len):
@@ -40,17 +47,20 @@ class DynamicArray:
         self.len += 1
 
     def remove_at(self, rm_index):
-        if rm_index < 0 or rm_index >= self.len:
-            raise IndexError("Index out of bounds")
-        data = self.arr[rm_index]
-        new_arr = [None] * (self.len - 1)
-        for i in range(self.len):
-            if i != rm_index:
-                new_arr[i - (1 if i > rm_index else 0)] = self.arr[i]
-        self.arr = new_arr
-        self.capacity = self.len - 1
-        self.len -= 1
-        return data
+        try:
+            if rm_index < 0 or rm_index >= self.len:
+                raise IndexError("Index out of bounds")
+            data = self.arr[rm_index]
+            new_arr = [None] * (self.len - 1)
+            for i in range(self.len):
+                if i != rm_index:
+                    new_arr[i - (1 if i > rm_index else 0)] = self.arr[i]
+            self.arr = new_arr
+            self.capacity = self.len - 1
+            self.len -= 1
+            return data
+        except IndexError as e:
+            print("Error:", e)
 
     def remove(self, obj):
         index = self.index_of(obj)
@@ -95,7 +105,7 @@ class DynamicArray:
 
 # Example usage:
 if __name__ == "__main__":
-    arr = DynamicArray()
+    arr = DynamicArray(-50)
     arr.add(1)
     arr.add(2)
     arr.add(3)

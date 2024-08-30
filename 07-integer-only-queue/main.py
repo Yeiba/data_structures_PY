@@ -18,26 +18,35 @@ class IntQueue:
 
     # Peek at the front element without removing it
     def peek(self):
-        if self.is_empty():
-            raise IndexError("Queue is empty")
-        return self.ar[self.front]
+        try:
+            if self.is_empty():
+                raise IndexError("Queue is empty")
+            return self.ar[self.front]
+        except IndexError as e:
+            print("Error:", e)
 
     # Add an element to the end of the queue
     def enqueue(self, value):
-        if not isinstance(value, int):
-            raise ValueError("Only integers are allowed")
-        if (self.end + 1) % len(self.ar) == self.front:
-            raise OverflowError("Queue too small!")
-        self.ar[self.end] = value
-        self.end = (self.end + 1) % len(self.ar)
+        try:
+            if not isinstance(value, int):
+                raise ValueError("Only integers are allowed")
+            if (self.end + 1) % len(self.ar) == self.front:
+                raise OverflowError("Queue too small!")
+            self.ar[self.end] = value
+            self.end = (self.end + 1) % len(self.ar)
+        except ValueError | OverflowError as e:
+            print("Error:", e)
 
     # Remove and return the element at the front of the queue
     def dequeue(self):
-        if self.is_empty():
-            raise IndexError("Queue is empty")
-        value = self.ar[self.front]
-        self.front = (self.front + 1) % len(self.ar)
-        return value
+        try:
+            if self.is_empty():
+                raise IndexError("Queue is empty")
+            value = self.ar[self.front]
+            self.front = (self.front + 1) % len(self.ar)
+            return value
+        except IndexError as e:
+            print("Error:", e)
 
 
 # Example usage

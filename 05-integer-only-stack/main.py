@@ -6,9 +6,12 @@ class IntStack:
 
     # Ensure that only integers are pushed onto the stack
     def push(self, elem):
-        if not isinstance(elem, int):
-            raise TypeError("Only integers are allowed in the stack")
-        self.list.append(elem)
+        try:
+            if not isinstance(elem, int):
+                raise TypeError("Only integers are allowed in the stack")
+            self.list.append(elem)
+        except TypeError as e:
+            print("Error:", e)
 
     # Return the number of elements in the stack
     def size(self):
@@ -21,16 +24,22 @@ class IntStack:
     # Pop an element off the stack
     # Raises an error if the stack is empty
     def pop(self):
-        if self.is_empty():
-            raise IndexError("Empty stack")
-        return self.list.pop()
+        try:
+            if self.is_empty():
+                raise IndexError("Empty stack")
+            return self.list.pop()
+        except IndexError as e:
+            print("Error:", e)
 
     # Peek the top of the stack without removing the element
     # Raises an error if the stack is empty
     def peek(self):
-        if self.is_empty():
-            raise IndexError("Empty stack")
-        return self.list[-1]
+        try:
+            if self.is_empty():
+                raise IndexError("Empty stack")
+            return self.list[-1]
+        except IndexError as e:
+            print("Error:", e)
 
     # Allow users to iterate through the stack using an iterator
     def __iter__(self):
