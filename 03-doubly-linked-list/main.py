@@ -1,14 +1,14 @@
 class DoublyLinkedList:
+    def __init__(self, data=None):
+        self.head = self.Node(data) if data is not None else None
+        self.size = 1 if data is not None else 0
+        self.tail = self.head if self.head is not None else None
+
     class Node:
         def __init__(self, data, prev=None, next=None):
             self.data = data
             self.prev = prev
             self.next = next
-
-    def __init__(self):
-        self.size = 0
-        self.head = None
-        self.tail = None
 
     def clear(self):
         trav = self.head
@@ -173,7 +173,6 @@ if __name__ == "__main__":
 
     print(dll)  # [ 3, ]
 
-    dll.add(5)
     dll.add(6)
     dll.add(7)
 

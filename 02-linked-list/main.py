@@ -1,10 +1,7 @@
 class LinkedList:
 
     def __init__(self, data=None):
-        if data is not None:   # The first node in the list
-            self.head = self.Node(data)
-        else:
-            self.head = None
+        self.head = self.Node(data) if data is not None else None
 
     class Node:
         def __init__(self, data=None):
@@ -105,7 +102,7 @@ class LinkedList:
 
 # Example usage:
 if __name__ == "__main__":
-    ll = LinkedList(3)
+    ll = LinkedList()
     ll.append(10)
     ll.append(20)
     ll.append(30)
