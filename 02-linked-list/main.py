@@ -1,13 +1,17 @@
 class LinkedList:
+
+    def __init__(self, firstNode=None):
+        if firstNode is not None:   # The first node in the list
+            self.head = self.Node(firstNode)
+        else:
+            self.head = None
+
     class Node:
         def __init__(self, data=None):
             self.data = data  # The value stored in the node
             self.next = None  # Pointer to the next node
-
-    def __init__(self):
-        self.head = None  # The first node in the list
-
     # Append a new node with the given data at the end of the list
+
     def append(self, data):
         new_node = self.Node(data)
         if self.head is None:
@@ -101,7 +105,7 @@ class LinkedList:
 
 # Example usage:
 if __name__ == "__main__":
-    ll = LinkedList()
+    ll = LinkedList(3)
     ll.append(10)
     ll.append(20)
     ll.append(30)
