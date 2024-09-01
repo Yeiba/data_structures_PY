@@ -1,8 +1,8 @@
 class LinkedList:
 
-    def __init__(self, firstNode=None):
-        if firstNode is not None:   # The first node in the list
-            self.head = self.Node(firstNode)
+    def __init__(self, data=None):
+        if data is not None:   # The first node in the list
+            self.head = self.Node(data)
         else:
             self.head = None
 
