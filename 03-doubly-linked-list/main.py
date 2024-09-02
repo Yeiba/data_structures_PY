@@ -1,7 +1,8 @@
 class DoublyLinkedList:
-    def __init__(self, data=None):
-        self.head = self.Node(data) if data is not None else None
-        self.size = 1 if data is not None else 0
+    def __init__(self, first_elem=None):
+        self.head = self.Node(
+            first_elem) if first_elem is not None else first_elem
+        self.size = 1 if first_elem is not None else 0
         self.tail = self.head if self.head is not None else None
 
     class Node:
@@ -22,6 +23,9 @@ class DoublyLinkedList:
 
     def is_empty(self):
         return self.size == 0
+
+    def Size(self):
+        return self.size
 
     def add(self, elem):
         self.add_last(elem)
@@ -183,3 +187,7 @@ if __name__ == "__main__":
     print(dll.contains(5))  # False
     for i in dll:
         print(i)  # Prints 3, 7
+
+    dll.clear()  # Clear
+    print(dll.Size())  # 0
+    print(dll.is_empty())  # true

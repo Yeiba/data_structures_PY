@@ -1,7 +1,9 @@
 class LinkedList:
 
-    def __init__(self, data=None):
-        self.head = self.Node(data) if data is not None else None
+    def __init__(self, first_elem=None):
+        self.head = self.Node(
+            first_elem) if first_elem is not None else first_elem
+        self.size = 1 if first_elem is not None else 0
         self.tail = self.head if self.head is not None else None
 
     class Node:
@@ -21,8 +23,12 @@ class LinkedList:
         self.size = 0
 
     # Check if the list is empty
+
     def is_empty(self):
-        return self.head is None
+        return self.size == 0
+
+    def Size(self):
+        return self.size
 
     def append(self, data):
         new_node = self.Node(data)
@@ -33,6 +39,7 @@ class LinkedList:
             while current.next:
                 current = current.next
             current.next = new_node  # Link the last node to the new node
+        self.size += 1
 
     # Insert a new node with the given data at the specified index
     def insert(self, data, index):
@@ -53,6 +60,7 @@ class LinkedList:
 
                 new_node.next = current.next
                 current.next = new_node
+            self.size += 1
         except IndexError as e:
             print("Error:", e)
 
@@ -70,6 +78,7 @@ class LinkedList:
                 return current.data
             previous = current
             current = current.next
+        self.size -= 1
 
         return None
 
@@ -127,7 +136,7 @@ if __name__ == "__main__":
     ll.display()  # Output: [10, 15, 20, 30]
 
     print(ll.get(2))  # Output: 20
-
+    print('Size:', ll.Size())  # Output: 4
     ll.remove(20)
     ll.display()  # Output: [10, 15, 30]c
 
@@ -137,4 +146,5 @@ if __name__ == "__main__":
         print(i)  # Prints 10, 15, 30
 
     ll.clear()
-    print(ll.length())  # Output: 0
+    print(ll.Size())  # Output: 0
+    print(ll.is_empty())  # true

@@ -1,72 +1,64 @@
-class IntStack:
+
+
+class IntegerStack:
     def __init__(self, first_elem=None):
-        self.list = []
-        if first_elem is not None:
-            self.push(first_elem)
+        if first_elem is not None and not isinstance(first_elem, int):
+            raise TypeError("Only integers are allowed")
+        self.head = self.Node(
+            first_elem) if first_elem is not None else first_elem
+        self._size = 1 if first_elem is not None else 0
 
-    # Ensure that only integers are pushed onto the stack
-    def push(self, elem):
-        try:
-            if not isinstance(elem, int):
-                raise TypeError("Only integers are allowed in the stack")
-            self.list.append(elem)
-        except TypeError as e:
-            print("Error:", e)
+    class Node:
+        def __init__(self, data=None):
+            self.data = data
+            self.next = None
 
-    # Return the number of elements in the stack
     def size(self):
-        return len(self.list)
+        return self._size
 
-    # Check if the stack is empty
     def is_empty(self):
-        return self.size() == 0
+        return self._size == 0
 
-    # Pop an element off the stack
-    # Raises an error if the stack is empty
+    def push(self, elem):
+        if not isinstance(elem, int):
+            raise TypeError("Only integers are allowed")
+        new_node = self.Node(elem)
+        new_node.next = self.head
+        self.head = new_node
+        self._size += 1
+
     def pop(self):
-        try:
-            if self.is_empty():
-                raise IndexError("Empty stack")
-            return self.list.pop()
-        except IndexError as e:
-            print("Error:", e)
+        if self.is_empty():
+            raise IndexError("Empty stack")
+        popped_node = self.head
+        self.head = self.head.next
+        self._size -= 1
+        return popped_node.data
 
-    # Peek the top of the stack without removing the element
-    # Raises an error if the stack is empty
     def peek(self):
-        try:
-            if self.is_empty():
-                raise IndexError("Empty stack")
-            return self.list[-1]
-        except IndexError as e:
-            print("Error:", e)
+        if self.is_empty():
+            raise IndexError("Empty stack")
+        return self.head.data
 
-    # Allow users to iterate through the stack using an iterator
     def __iter__(self):
-        self._index = len(self.list)
-        return self
-
-    def __next__(self):
-        if self._index > 0:
-            self._index -= 1
-            return self.list[self._index]
-        else:
-            raise StopIteration
+        current = self.head
+        while current:
+            yield current.data
+            current = current.next
 
 
 # Example usage:
-if __name__ == "__main__":
-    stack = IntStack()
-    stack.push(1)
-    stack.push(2)
-    stack.push(3)
+stack = IntegerStack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
 
-    print(stack.pop())  # 3
-    print(stack.peek())  # 2
-    print(stack.size())  # 2
+print(stack.pop())  # 3
+print(stack.peek())  # 2
+print(stack.size())  # 2
 
-    for item in stack:
-        print(item)  # 2, 1
+for item in stack:
+    print(item)  # 2, 1
 
-# Uncommenting the following line will raise a TypeError
-# stack.push("string")  # TypeError: Only integers are allowed in the stack
+# The following will throw an error
+# stack.push("hello")  # TypeError: Only integers are allowed
