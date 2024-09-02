@@ -2,12 +2,27 @@ class LinkedList:
 
     def __init__(self, data=None):
         self.head = self.Node(data) if data is not None else None
+        self.tail = self.head if self.head is not None else None
 
     class Node:
         def __init__(self, data=None):
             self.data = data  # The value stored in the node
             self.next = None  # Pointer to the next node
     # Append a new node with the given data at the end of the list
+
+    def clear(self):
+        trav = self.head
+        while trav is not None:
+            next_node = trav.next
+            trav.next = None
+            trav.data = None
+            trav = next_node
+        self.head = self.tail = trav = None
+        self.size = 0
+
+    # Check if the list is empty
+    def is_empty(self):
+        return self.head is None
 
     def append(self, data):
         new_node = self.Node(data)
@@ -95,9 +110,11 @@ class LinkedList:
             current = current.next
         return count
 
-    # Check if the list is empty
-    def is_empty(self):
-        return self.head is None
+    def __iter__(self):
+        trav = self.head
+        while trav:
+            yield trav.data
+            trav = trav.next
 
 
 # Example usage:
@@ -112,7 +129,12 @@ if __name__ == "__main__":
     print(ll.get(2))  # Output: 20
 
     ll.remove(20)
-    ll.display()  # Output: [10, 15, 30]
+    ll.display()  # Output: [10, 15, 30]c
 
     print('Size:', ll.length())  # Output: Size: 3
     print('Is empty:', ll.is_empty())  # Output: Is empty: False
+    for i in ll:
+        print(i)  # Prints 10, 15, 30
+
+    ll.clear()
+    print(ll.length())  # Output: 0

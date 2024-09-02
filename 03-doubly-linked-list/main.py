@@ -142,7 +142,7 @@ class DoublyLinkedList:
 
     def __iter__(self):
         trav = self.head
-        while trav is not None:
+        while trav:
             yield trav.data
             trav = trav.next
 
@@ -181,3 +181,5 @@ if __name__ == "__main__":
 
     print(dll.index_of(7))  # 1
     print(dll.contains(5))  # False
+    for i in dll:
+        print(i)  # Prints 3, 7
